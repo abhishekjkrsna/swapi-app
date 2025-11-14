@@ -37,6 +37,9 @@ const peopleSlice = createSlice({
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
     },
+    reset: (state) => {
+      state.currentPage = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -65,6 +68,6 @@ const peopleSlice = createSlice({
 
 export { getData, searchName };
 
-export const { setCurrentPage } = peopleSlice.actions;
+export const { setCurrentPage, reset } = peopleSlice.actions;
 
 export default peopleSlice.reducer;

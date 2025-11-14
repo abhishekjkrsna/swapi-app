@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { login as loginAction } from "../features/login/login";
+import fetchData from "../services/data";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -19,6 +20,7 @@ export default function Login() {
     event.preventDefault();
     if (username === "admin" && password === "admin") {
       dispatch(loginAction());
+      dispatch(fetchData(1));
     } else {
       alert("Invalid credentials");
     }
@@ -82,7 +84,7 @@ export default function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={() => {
-                handleSubmit
+                handleSubmit;
               }}
             >
               Sign In

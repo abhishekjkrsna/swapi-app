@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { logout as logoutAction } from "../../features/login/login";
+import { reset as resetAction } from "../../features/people/peopleSlice";
 export default function Navbar() {
   const login = useSelector((state: any) => state.login.isLoggedIn);
   const dispatch = useDispatch<any>();
@@ -19,6 +20,7 @@ export default function Navbar() {
             color="inherit"
             onClick={() => {
               dispatch(logoutAction());
+              dispatch(resetAction());
             }}
           >
             {login ? "Logout" : ""}
