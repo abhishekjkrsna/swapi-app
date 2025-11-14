@@ -1,8 +1,11 @@
 import { useEffect } from "react";
-import "./App.css";
 import { useDispatch } from "react-redux";
 import { getData } from "./features/people/peopleSlice";
 import Layout from "./pages/layout";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme";
+
 function App() {
   const dispatch = useDispatch<any>();
   useEffect(() => {
@@ -10,9 +13,10 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Layout />
-    </>
+    </ThemeProvider>
   );
 }
 

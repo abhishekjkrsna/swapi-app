@@ -6,10 +6,11 @@ import {
   Typography,
   Box,
   Paper,
+  Avatar,
 } from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useDispatch } from "react-redux";
 import { login as loginAction } from "../features/login/login";
-import fetchData from "../services/data";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -20,31 +21,39 @@ export default function Login() {
     event.preventDefault();
     if (username === "admin" && password === "admin") {
       dispatch(loginAction());
-      dispatch(fetchData(1));
     } else {
       alert("Invalid credentials");
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+    <Box
+      sx={{
+        flexGrow: 1,
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "linear-gradient(135deg, #1d2b3a 0%, #121212 100%)",
+      }}
+    >
+      <Container component="main" maxWidth="xs">
         <Paper
-          elevation={3}
+          elevation={6}
           sx={{
             padding: 4,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            background: "rgba(255, 255, 255, 0.05)",
+            backdropFilter: "blur(10px)",
+            borderRadius: 2,
           }}
         >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
+          </Avatar>
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
@@ -52,7 +61,7 @@ export default function Login() {
             component="form"
             onSubmit={handleSubmit}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{ mt: 1, width: "100%" }}
           >
             <TextField
               margin="normal"
@@ -83,15 +92,12 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => {
-                handleSubmit;
-              }}
             >
               Sign In
             </Button>
           </Box>
         </Paper>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
