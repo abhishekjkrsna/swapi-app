@@ -10,7 +10,7 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import type { CardData } from "../../types/types";
-import { Box, Grid, List, ListItem, ListItemText } from "@mui/material";
+import { Box } from "@mui/material";
 
 export default function PeopleCard({ people, homeworld }: CardData) {
   const [open, setOpen] = useState(false);
