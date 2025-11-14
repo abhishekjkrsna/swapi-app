@@ -2,9 +2,8 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getData } from "./features/people/peopleSlice";
 import Layout from "./pages/layout";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "./contexts/ThemeContext";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "./theme";
 
 function App() {
   const dispatch = useDispatch<any>();
@@ -13,7 +12,7 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <CssBaseline />
       <Layout />
     </ThemeProvider>

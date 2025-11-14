@@ -28,28 +28,30 @@ export default function Login() {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         flexGrow: 1,
-        width: "100%",
-        height: "100vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #1d2b3a 0%, #121212 100%)",
-      }}
+        background: theme.palette.mode === 'dark'
+          ? "linear-gradient(135deg, #1d2b3a 0%, #121212 100%)"
+          : "linear-gradient(135deg, #e3f2fd 0%, #f5f5f5 100%)",
+      })}
     >
       <Container component="main" maxWidth="xs">
         <Paper
           elevation={6}
-          sx={{
+          sx={(theme) => ({
             padding: 4,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            background: "rgba(255, 255, 255, 0.05)",
+            background: theme.palette.mode === 'dark'
+              ? "rgba(255, 255, 255, 0.05)"
+              : "rgba(255, 255, 255, 0.8)",
             backdropFilter: "blur(10px)",
             borderRadius: 2,
-          }}
+          })}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />

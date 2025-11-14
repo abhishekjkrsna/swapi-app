@@ -22,17 +22,19 @@ export default function PeopleCard({ people, homeworld }: CardData) {
   return (
     <>
       <Card
-        sx={{
+        sx={(theme) => ({
           width: 300,
           borderRadius: 2,
           transition: "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
           "&:hover": {
             transform: "scale(1.05)",
-            boxShadow: (theme) => `0 0 20px ${theme.palette.primary.main}`,
+            boxShadow: `0 0 20px ${theme.palette.primary.main}`,
           },
-          background: "rgba(255, 255, 255, 0.05)",
+          background: theme.palette.mode === 'dark'
+            ? "rgba(255, 255, 255, 0.05)"
+            : "rgba(255, 255, 255, 0.8)",
           backdropFilter: "blur(10px)",
-        }}
+        })}
       >
         <CardActionArea onClick={handleOpen}>
           <CardMedia
