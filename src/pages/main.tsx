@@ -28,7 +28,7 @@ export default function Main({ data }: { data: CardData[] }) {
         size="large"
         page={page}
         // onChange handler to set page state
-        onChange={(event, page) => {
+        onChange={(_event, page) => {
           dispatch(setCurrentPage(page));
           dispatch(getData(page));
         }}
