@@ -1,5 +1,5 @@
 import fetchPeople from "./people";
-import transformData from "./data - Copy";
+import transformData from "./transformData";
 import type { CardData } from "../types/types";
 
 // Create a cache outside the function scope

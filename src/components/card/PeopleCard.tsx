@@ -89,10 +89,10 @@ export default function PeopleCard({ people, homeworld }: CardData) {
           {/* --- Improved Modal Content --- */}
           <Box id="modal-modal-description">
             <Typography sx={{ mt: 2 }}>
-              <strong>Height:</strong> {people.height}
+              <strong>Height:</strong> {`${people.height} m`}
             </Typography>
             <Typography>
-              <strong>Mass:</strong> {people.mass}
+              <strong>Mass:</strong> {`${people.mass} Kg`}
             </Typography>
             <Typography>
               <strong>Birth Year:</strong> {people.birthYear}

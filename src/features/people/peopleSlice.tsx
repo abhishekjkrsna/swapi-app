@@ -3,7 +3,7 @@ import type { StoreData } from "../../types/types";
 import fetchData from "../../services/data";
 import preFetchPage from "../../services/preFetch";
 import searchPeopleName from "../../services/searchName";
-import transformData from "../../services/data - Copy";
+import transformData from "../../services/transformData";
 
 const initialState: StoreData = {
   state: "idle",
