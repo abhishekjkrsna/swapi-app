@@ -2,7 +2,7 @@ import { Grid, Pagination } from "@mui/material";
 import PeopleCard from "../components/card/PeopleCard";
 import type { CardData } from "../types/types";
 import { useDispatch, useSelector } from "react-redux";
-import { getData, setCurrentPage } from "../features/people/peopleSlice";
+import { setCurrentPage } from "../features/people/peopleSlice";
 
 export default function Main({ data }: { data: CardData[] }) {
   const dispatch = useDispatch<any>();
