@@ -31,6 +31,7 @@ export default function Main({ data }: { data: CardData[] }) {
         onChange={(_event, page) => {
           dispatch(setCurrentPage(page));
           dispatch(getData(page));
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         sx={{
           width: "100%",
