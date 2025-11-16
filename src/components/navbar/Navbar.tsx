@@ -7,9 +7,9 @@ import IconButton from "@mui/material/IconButton";
 import { useDispatch, useSelector } from "react-redux";
 import { logout as logoutAction } from "../../features/login/login";
 import { reset as resetAction } from "../../features/people/peopleSlice";
-import PublicIcon from '@mui/icons-material/Public';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import PublicIcon from "@mui/icons-material/Public";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useThemeContext } from "../../contexts/ThemeContext";
 
 export default function Navbar() {
@@ -19,15 +19,20 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar 
-        position="sticky" 
+      <AppBar
+        position="sticky"
         sx={(theme) => ({
-          background: theme.palette.mode === 'dark' 
-            ? 'rgba(18, 18, 18, 0.7)' 
-            : 'rgba(255, 255, 255, 0.7)',
-          backdropFilter: 'blur(10px)',
-          boxShadow: 'none',
-          borderBottom: `1px solid ${theme.palette.divider}`
+          background:
+            theme.palette.mode === "dark"
+              ? "rgba(18, 18, 18, 0.7)"
+              : "rgba(255, 255, 255, 0.7)",
+          backdropFilter: "blur(10px)",
+          boxShadow: "none",
+          color:
+            theme.palette.mode === "dark"
+              ? "rgba(255, 255, 255, 0.7)"
+              : "rgba(18, 18, 18, 0.7)",
+          borderBottom: `1px solid ${theme.palette.divider}`,
         })}
       >
         <Toolbar>
@@ -36,7 +41,7 @@ export default function Navbar() {
             SWAPI People Explorer
           </Typography>
           <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
-            {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+            {mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
           {login && (
             <Button

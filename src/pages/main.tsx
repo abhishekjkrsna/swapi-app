@@ -11,15 +11,18 @@ export default function Main({ data }: { data: CardData[] }) {
     <>
       <Grid
         container
-        spacing={2}
-        sx={{ width: "100%", marginTop: "20px", justifyContent: "center" }}
+        spacing={4}
+        sx={{
+          width: "100%",
+          marginTop: "20px",
+          padding: "0 24px",
+          justifyContent: "center",
+        }}
       >
         {data.map((person: CardData, index: number) => (
-          <PeopleCard
-            key={index}
-            people={person.people}
-            homeworld={person.homeworld}
-          />
+          <Grid key={index}>
+            <PeopleCard people={person.people} homeworld={person.homeworld} />
+          </Grid>
         ))}
       </Grid>
       <Pagination
@@ -27,19 +30,26 @@ export default function Main({ data }: { data: CardData[] }) {
         shape="rounded"
         size="large"
         page={page}
-        // onChange handler to set page state
         onChange={(_event, page) => {
           dispatch(setCurrentPage(page));
-          dispatch(getData(page));
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
-        sx={{
+        sx={(theme) => ({
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          marginTop: "20px",
-          marginBottom: "20px",
-        }}
+          padding: "20px 0",
+          "& .MuiPaginationItem-root": {
+            borderRadius: "12px",
+            "&.Mui-selected": {
+              backgroundColor: theme.palette.primary.main,
+              color: theme.palette.primary.contrastText,
+              "&:hover": {
+                backgroundColor: theme.palette.primary.dark,
+              },
+            },
+          },
+        })}
       />
     </>
   );

@@ -13,6 +13,10 @@ const lightTheme = createTheme({
       default: '#f5f5f5',
       paper: '#ffffff',
     },
+    text: {
+      primary: '#000000',
+      secondary: '#424242',
+    },
   },
   typography: {
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
